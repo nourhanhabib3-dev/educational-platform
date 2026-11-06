@@ -5,7 +5,7 @@
 <div class="card">
     <div class="card-body col-lg-6">
     <h4 class="card-title">Teachers Form</h4>
-    {{-- @if($errors->any())
+    @if($errors->any())
      <div class="alart alart-denger">
         <ul>
             @foreach ($errors->all() as $error)
@@ -14,7 +14,7 @@
         </ul>
      </div>
 
-    @endif --}}
+    @endif
 
     <form class="my-form " action="{{route('teacher.store')}}" method="POST"
           enctype="multipart/form-data" >
@@ -70,21 +70,15 @@
             </div>
         </div>
 
-        <div class="form-group row d-flex justify-content-center ">
-             @error('img')
+        <div class="form-group row d-flex justify-content-center">
+            @error('img')
               <p class="text-denger d-block mt-1">{{$message}}</p>
             @enderror
-            <label class="col-sm-3 col-form-label">File upload</label>
-            <input type="file" name="img[]" class="file-upload-default">
-            <div class="input-group col-xs-12">
-                <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image" name="img">
-                <span class="input-group-append">
-                    <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
-                </span>
+            <label for="exampleInputUsername2"  class="col-sm-3 col-form-label">image</label>
+            <div class="col-sm-6">
+                <input type="file" name="img" class="form-control"  id="exampleInputUsername2">
             </div>
         </div>
-
-
 
         <div class="form-group row d-flex justify-content-center">
             @error('sub')
@@ -93,6 +87,7 @@
             <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Subjects</label>
             <div class="col-sm-6">
                 <select name="sub_id" id="exampleInputUsername2">
+                    <option value="">Choose a subject</option>
                     @foreach ( $sub as $key=>$sub )
                     <option value="{{$sub->id}}" {{old('sub_id') == $sub->id ? 'selected' :''}}>{{$sub->name}}</option>
                     @endforeach

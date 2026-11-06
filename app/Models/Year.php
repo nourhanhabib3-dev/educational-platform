@@ -12,4 +12,8 @@ class Year extends Model
     public function sub(){
         return $this->hasmany(Sub::class);
     }
+
+    public function student(){
+        return $this->hasMany(Student::class);
+    }
 }

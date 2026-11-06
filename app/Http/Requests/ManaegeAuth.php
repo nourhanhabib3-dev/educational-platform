@@ -23,7 +23,7 @@ class ManaegeAuth extends FormRequest
     public function rules(): array
     {
         return [
-            "email" => "required|email|unique:managers,email" ,
+            "email" => "required|email" ,
             "password" => "required|string|min:6"
         ];
     }

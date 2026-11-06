@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Storage;
 
 trait UploadImageTrait
 {
-    public function uploadImage(Request $request, $inputName, $folderName, $oldImage=null){
+    public function uploadFile(Request $request, $inputName, $folderName, $oldImage=null){
         if($request->hasFile($inputName)){
             if($oldImage && Storage::disk('public')->exists($oldImage)){
                 Storage::disk('public')->delete($oldImage);
@@ -17,5 +17,14 @@ trait UploadImageTrait
         return $oldImage ;
 
     }
+
+    public function deleteFile(?string $path): void{
+        if($path && Storage::disk('public')->exists($path)){
+            Storage::disk('public')->delete($path);
+        }
+
+    }
+
+
 
 }

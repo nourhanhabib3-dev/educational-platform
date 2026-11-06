@@ -56,6 +56,9 @@
         </div>
     </div>
     </div>
+    <div class=" d-flex justify-content-center my-4  ">
+        {{$data->links()}}
+    </div>
 </div>
 
 

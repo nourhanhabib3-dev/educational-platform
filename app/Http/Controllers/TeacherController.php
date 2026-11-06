@@ -95,9 +95,9 @@ class TeacherController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id)
+    public function destroy(teacher $teacher )
     {
-        $teacher = teacher::findOrFail($id);
+
 
         if ($teacher->img) {
             Storage::disk('public')->delete($teacher->img);

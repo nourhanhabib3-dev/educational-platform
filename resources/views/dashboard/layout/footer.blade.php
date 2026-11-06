@@ -53,6 +53,8 @@
             success:function(response){
 
                 row.remove();
+                alert('successfly');
+
 
             },
             error:function(xhr){
@@ -134,7 +136,7 @@
 </script> --}}
 
 <script>
-    $(document).off('submit' , '.form_add').on('submit' , '.form_add' , function(e){
+    $(document).on('submit' , '.form_add' , function(e){
         e.preventDefault();
         var form = $(this);
         var actionUrl = $(this).attr('action');
@@ -153,17 +155,14 @@
                     }
                 }
             },error :function(xhr){
-                console.log(xhr.responseText);
                 alert('try agin');
-
             }
         });
     });
 </script>
 
-<script>
 
-</script>
+
 
   </body>
 </html>
