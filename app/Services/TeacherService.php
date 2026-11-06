@@ -16,7 +16,7 @@ class TeacherService {
         DB::beginTransaction();
         try{
             if($request->hasFile('img')){
-                $data['img']=$this->uploadImage($request , 'img' , 'teachers');
+                $data['img']=$this->uploadFile($request , 'img' , 'teachers');
             }
             $teacher=teacher::create($data);
             DB::commit();
@@ -31,14 +31,14 @@ class TeacherService {
     }
 
 
-    public function updateTeacher(teacher $teacher , array $data , $request){
+    public function updateTeacher(teacher $teacher , array $data , Request $request){
 
         DB::beginTransaction();
 
         try{
-            if($request->hasFile('img')){
-                $data['img']=$this->uploadImage($request , 'img' , 'teachers' , $teacher->img);
-            }
+
+            $data['img']=$this->uploadFile($request , 'img' , 'teachers' , $teacher->img);
+
             $teacher->update($data);
 
             DB::commit();

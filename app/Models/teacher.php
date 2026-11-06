@@ -3,8 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class teacher extends Model
+
+class teacher extends Authenticatable
 {
     protected $fillable = [
         'name',
@@ -36,6 +38,10 @@ class teacher extends Model
 
     public function sub(){
         return $this->belongsTo(Sub::class);
+    }
+
+    public function course(){
+       return $this->hasMany(Course::class);
     }
 
 

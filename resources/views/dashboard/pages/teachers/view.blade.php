@@ -14,7 +14,7 @@
                     <thead>
                         <tr>
                           <th> #     </th>
-                          <th> img   </th>
+                          <th> image  </th>
                           <th> Name  </th>
                           <th> Email </th>
                           <th> Subject </th>
