@@ -16,7 +16,7 @@
 
     @endif
 
-    <form class="my-form " action="{{route('course.store')}}" method="POST"
+    <form class="my-form " action="{{route('course.lesson.store')}}" method="POST"
           enctype="multipart/form-data" >
         @csrf
 

@@ -7,9 +7,11 @@
                 <div class="card bg-gradient-danger card-img-holder text-white">
                   <div class="card-body">
                     <img src="{{asset('dash')}}/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                    <h4 class="font-weight-normal mb-3">Total Students <i class="mdi mdi-chart-line mdi-24px float-right"></i>
+                    <h2 class="font-weight-normal mb-3">{{$stats['card1']['title']}} <i class="mdi mdi-chart-line mdi-24px float-right"></i>
+                    </h2>
+                    <h4 class="mb-5">
+                        {{$stats['card1']['count']}}
                     </h4>
-                    <h2 class="mb-5">$ 15,0000</h2>
                     <h6 class="card-text">From last month</h6>
                   </div>
                 </div>
@@ -18,9 +20,11 @@
                 <div class="card bg-gradient-info card-img-holder text-white">
                   <div class="card-body">
                     <img src="{{asset('dash')}}/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                    <h4 class="font-weight-normal mb-3">Total Teachers <i class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
+                    <h2 class="font-weight-normal mb-3">  {{$stats['card2']['title']}}  <i class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
+                    </h2>
+                    <h4 class="mb-5">
+                        {{$stats['card2']['count']}}
                     </h4>
-                    <h2 class="mb-5">45,6334</h2>
                     <h6 class="card-text">From last month</h6>
                   </div>
                 </div>
@@ -29,9 +33,11 @@
                 <div class="card bg-gradient-success card-img-holder text-white">
                   <div class="card-body">
                     <img src="{{asset('dash')}}/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                    <h4 class="font-weight-normal mb-3">Active Subject <i class="mdi mdi-diamond mdi-24px float-right"></i>
+                    <h2 class="font-weight-normal mb-3"> {{$stats['card3']['title']}} <i class="mdi mdi-diamond mdi-24px float-right"></i>
+                    </h2>
+                    <h4 class="mb-5">
+                        {{$stats['card3']['count']}}
                     </h4>
-                    <h2 class="mb-5">95,5741</h2>
                     <h6 class="card-text">from last month</h6>
                   </div>
                 </div>

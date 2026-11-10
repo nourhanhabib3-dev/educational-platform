@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\ManagerAuthController;
 use App\Http\Controllers\ManagerController;
@@ -20,9 +21,12 @@ Route::get('login_form' ,[ManagerAuthController::class , 'show_form'])->name('lo
 Route::post('check_login' , [ManagerAuthController::class ,'check_form'])->name('check_login');
 
 Route::middleware(managerAuth::class)->group(function(){
-    Route::get('index', function () {
-        return view('dashboard.pages.index');
-    })->name('index');
+
+    Route::get('index' , [DashboardController::class , 'index'])->name('index');
+
+    // Route::get('index', function () {
+    //     return view('dashboard.pages.index');
+    // })->name('index');
 
     Route::resource('year', YearsController::class);
     Route::resource('sub', SubController::class);
@@ -34,12 +38,16 @@ Route::middleware(managerAuth::class)->group(function(){
 });
 
 Route::middleware(teacherAuth::class)->group(function(){
-    Route::get('index2', function () {
-        return view('dashboard.pages.index');
-    })->name('index2');
+
+    Route::get('index2' , [DashboardController::class , 'index'])->name('index2');
+
+    // Route::get('index2', function () {
+    //     return view('dashboard.pages.index');
+    // })->name('index2');
 });
 
 Route::middleware(CheckAuth::class)->group(function(){
     Route::resource('course' , CourseController::class);
+    Route::get('lessons' , [LessonController::class , 'index'])->name('lesson.index');
     Route::resource('course.lesson' , LessonController::class);
 });

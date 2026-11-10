@@ -14,6 +14,7 @@
                     <thead>
                         <tr>
                           <th> #     </th>
+                          <th>image</th>
                           <th> Name  </th>
                           <th> Email </th>
                           <th> Edit</th>
@@ -24,6 +25,7 @@
                       @foreach ($data as $key=>$manager)
                         <tr>
                             <td>{{++$key}}</td>
+                          <td><div><img src="{{asset('storage/'.$manager->img)}}" alt=""></div></td>
                             <td>{{$manager->name}}</td>
                             <td>{{$manager->email}}</td>
                           <td>

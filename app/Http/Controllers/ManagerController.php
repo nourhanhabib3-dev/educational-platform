@@ -37,7 +37,7 @@ class ManagerController extends Controller
      */
     public function store(StoreManagerRequest $request)
     {
-       $this->managerService->creatManager($request->validated());
+       $this->managerService->creatManager($request->validated() , $request);
         return to_route('manager.index');
 
     }
@@ -51,7 +51,7 @@ class ManagerController extends Controller
      */
     public function update(UpdataManagerRequest $request, Manager $manager)
     {
-        $this->managerService->updateManager( $manager , $request->validated());
+        $this->managerService->updateManager( $manager , $request->validated() , $request);
 
         return to_route('manager.index');
 

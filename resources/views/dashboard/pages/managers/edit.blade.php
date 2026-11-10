@@ -17,8 +17,7 @@
 
     @endif --}}
 
-    <form class="my-form" action="" method="POST"
-          enctype="multipart/form-data" >
+    <form class="my-form" action="{{route('manager.update' , $manager->id)}}" method="POST" enctype="multipart/form-data" >
         @csrf
         @method('PUT')
 
@@ -29,7 +28,7 @@
             <label for="exampleInputUsername2" class="col-sm-3 col-form-label"> Name</label>
             <div class="col-sm-6">
                 <input type="text" class="form-control"
-                 id="exampleInputUsername2" name="name" value="">
+                 id="exampleInputUsername2" name="name" value="{{old('name' , $manager->name)}}">
             </div>
         </div>
 
@@ -39,24 +38,23 @@
             @enderror
             <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Email</label>
             <div class="col-sm-6">
-                <input type="text" class="form-control" value=""
+                <input type="text" class="form-control" value="{{old('email' , $manager->email)}}"
                 id="exampleInputUsername2" name="email">
             </div>
         </div>
 
 
+
         <div class="form-group row d-flex justify-content-center">
-            @error('password')
+            @error('img')
               <p style="color: red">{{$message}}</p>
             @enderror
-            <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Password</label>
+            <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Your Image</label>
             <div class="col-sm-6">
-                <input type="text" class="form-control" value=""
-                id="exampleInputUsername2" name="password">
+                <input type="file" class="form-control" id="exampleInputUsername2" name="img">
             </div>
         </div>
 
-        
 
         <div>
           <button type="submit" class="btn btn-primary ">Submit</button>

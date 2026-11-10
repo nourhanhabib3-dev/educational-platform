@@ -22,12 +22,14 @@ class LessonController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Course $course)
+    public function index()
     {
-        $this->authorize('viewAny', [Lesson::class, $course]);
-        $lessons = $course->lessons;
+        $this->authorize('viewAny' , Lesson::class);
+        $lessons = $this->lessonService->getAllLesson();
+        return view('dashboard.pages.lesson.view' , compact('lessons'));
 
-        return view('dashboard.pages.lesson.view', compact(['lessons', 'course']));
+
+
     }
 
     /**
@@ -46,7 +48,7 @@ class LessonController extends Controller
     {
         try{
             $this->lessonService->storeLesson($request->validated() , $request , $course );
-            return to_route('course.lesson.index' , $course);
+            return to_route('course.lesson.show' , $course);
         }catch(Exception $e){
             return response()->json([
                 'satuts' => false,
@@ -60,9 +62,11 @@ class LessonController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Lesson $lesson)
+    public function show(Course $course)
     {
-        //
+        $this->authorize('viewAny', [Lesson::class, $course]);
+        $lessons = $course->lessons;
+        return view( 'dashboard.pages.lesson.show', compact(['lessons', 'course']));
     }
 
     /**

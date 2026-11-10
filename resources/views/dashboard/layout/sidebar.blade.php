@@ -10,7 +10,7 @@
                     @if (Auth::guard('tech')->check())
                      <img src="{{asset('storage/' .Auth::guard('tech')->user()->img)}}" alt="profile">
                     @elseif (Auth::guard('manage')->check())
-                     <img src="{{asset('storage/' .Auth::guard('manage')->user()->img)}} alt="profile">
+                     <img src="{{asset('storage/' .Auth::guard('manage')->user()->img)}}" alt="profile">
                     @endif
                   <span class="login-status online"></span>
                   <!--change to offline or busy as needed-->
@@ -21,7 +21,7 @@
                      <span class="text-secondary text-small">Manager</span>
                     @elseif (Auth::guard('tech')->check())
                      <span class="font-weight-bold mb-2">{{Auth::guard('tech')->user()->name}}</span>
-                     <span class="text-secondary text-small">Manager</span>
+                     <span class="text-secondary text-small">Teacher</span>
 
                     @endif
                 </div>
@@ -81,6 +81,7 @@
                 <i class="mdi mdi-contacts menu-icon"></i>
               </a>
             </li>
+
             @endif
             @if(Auth::guard('tech')->check())
               <li class="nav-item">
@@ -98,6 +99,13 @@
                 <i class="mdi mdi-contacts menu-icon"></i>
               </a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('lesson.index')}}">
+                <span class="menu-title">Lessons</span>
+                <i class="mdi mdi-contacts menu-icon"></i>
+              </a>
+            </li>
+
             {{-- <li class="nav-item">
               <a class="nav-link" href="{{route('course.lesson.index')}}">
                 <span class="menu-title">Lesson</span>

@@ -26,6 +26,7 @@ class StoreManagerRequest extends FormRequest
             "name" => "required|string|max:50",
             "email" => "required|email|unique:managers,email",
             "password" => "required|string|min:6",
+            "img" => "required|image|mimes:png,jpg,jpeg"
         ];
     }
 }

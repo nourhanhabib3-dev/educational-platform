@@ -11,6 +11,7 @@ class Manager extends Authenticatable
         'name',
         'email',
         'password',
+        'img',
     ];
 
     /**

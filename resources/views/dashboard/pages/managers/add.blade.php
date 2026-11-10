@@ -41,6 +41,16 @@
         </div>
 
         <div class="form-group row d-flex justify-content-center">
+            @error('img')
+              <p class="text-denger d-block mt-1">{{$message}}</p>
+            @enderror
+            <label for="exampleInputUsername2"  class="col-sm-3 col-form-label">image</label>
+            <div class="col-sm-6">
+                <input type="file" name="img" class="form-control"  id="exampleInputUsername2">
+            </div>
+        </div>
+
+        <div class="form-group row d-flex justify-content-center">
             @error('password')
               <p class="text-denger d-block mt-1">{{$message}}</p>
             @enderror

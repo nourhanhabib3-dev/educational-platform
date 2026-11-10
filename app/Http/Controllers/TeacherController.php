@@ -16,9 +16,6 @@ class TeacherController extends Controller
 
     public function __construct(protected TeacherService $teacherService) {}
 
-
-
-
     /**
      * Display a listing of the resource.
      */

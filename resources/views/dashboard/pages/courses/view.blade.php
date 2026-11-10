@@ -34,7 +34,7 @@
                         <tr class="teacher_row" id="row-">
                           <td>{{++$key}}</td>
                           <td><div><img src="{{asset('storage/' .$course->img)}}" alt=""></div></td>
-                          <td> <a href="{{route('course.lesson.index' , $course->id)}}">{{$course->name}}</a> </td>
+                          <td> <a href="{{route('course.lesson.show' , $course->id)}}">{{$course->name}}</a> </td>
                           <td>{{$course->price}}</td>
                           <td>{{$course->sub->name}}</td>
                           <td>{{$course->teacher->name}}</td>
